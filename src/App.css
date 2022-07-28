@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+*{
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Libre Baskerville', serif;
+  font-family: 'Taviraj', serif;
+}
+.navbar-brand{
+  color:rgb(98, 247, 239);
+  font-weight: bolder;
+}
+.main{
+  height:90vh;
+}
+.sign-in{
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  background-image: url(../public/img/busbg.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left bottom;
+  margin: 0;
+  padding: 0;
+}
+.sign-in-container{
+  justify-self: center;
+  width: 500px;
+  margin-top:100px ;
+  border-radius: 10px;
+  height: 500px;
+  border: 1px solid rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.171);
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+.sign-in-container h1 {
+  color: rgb(0, 0, 0);
+  padding: 30px;
+  font-weight: bold;
+}
+.name{
+  padding: 0 15px 0 15px;
+}
+.email{
+  padding: 0 15px 0 15px;
+}
+.password{
+  padding:0 15px 0 15px;;
+}
+.button{
+  padding: 15px 150px ;
+}
+.button .btn {
+background: rgb(98, 247, 239);
+border: none;
+color: black;
+width: 150px;
+border-radius: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sign-in2{
+  display: flex;
+  justify-content: center;
+  background-image: url(../public/img/bg1.jpg);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sigin-form{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 100px ;
+  width: 400px;
+  height: 500px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+.sigin-form h1 {
+  text-align: center;
+  margin: 0;
   color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 50px;
+  padding: 30px;
+  font-weight: bold;
+  position:sticky
 }
-
-.App-link {
-  color: #61dafb;
+.sigin-form p {
+  font-size: 20px;
+  padding-left: 50px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sigin-form .btn {
+  background: rgb(254, 255, 255);
+  border: none;
+  color: black;
+  font-weight: bold;
+  width: 150px;
+  border-radius: 40px;
+}
+.btn-form {
+  padding-left: 130px;
+}
+.red {
+  width: 50px;
+  border: 1 px solid black;
+background: red;
+}
+.green{
+  width: 50px;
+  border: 1 px solid black;
+  background: green;
 }
