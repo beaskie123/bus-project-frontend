@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import React, { useEffect, useReducer, useState } from 'react'
 import { useParams } from 'react-router-dom';
@@ -70,6 +72,9 @@ function BusScreen() {
   ) :(
     <div>
       <Container>
+        <Row>
+          <Col>
+          <h2>Please select your desire seat.</h2>
         {seat.map((seat, index) => {
         if(seat.isBooked === true){
           return(
@@ -86,13 +91,19 @@ function BusScreen() {
             )
         }
         })}
-    {product.name} || 
-      {/*  
-      {product.slug} || 
-      {product.departureTime} || 
-      {product.arrivaltime} || 
-      {product.fare} ||  
-      {product.boardingPoints} ||   */}
+          </Col>
+          <Col>
+          {product.name} 
+          </Col>
+        </Row>
+        <Row>
+        <div class="form-group">
+        <label>
+          Date:
+          <input required type="date" name="date"/>
+        </label>
+      </div>
+        </Row>
       </Container></div>
   )
 }
