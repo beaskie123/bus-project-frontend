@@ -9,9 +9,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Store } from './Store';
-import SignUpScreen from './screen/SignUpScreen';
 import HomeScreen from './screen/HomeScreen';
 import BusScreen from './screen/BusScreen';
+import SignUpScreen from './screen/SignUpScreen';
+import ProfileScreen from './screen/ProfileScreen';
 
 function App() {
   const {state, dispatch: ctxDispatch } = useContext(Store)
@@ -29,15 +30,11 @@ function App() {
           <LinkContainer to='/'>
           <Navbar.Brand>Sonic Bus Co.</Navbar.Brand>
           </LinkContainer>
-          <Nav >
-            <Link to="/contactus">Contact Us</Link>
+          <Nav>
             { userInfo ? (
               <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                 <LinkContainer to="/profile">
                   <NavDropdown.Item>User Profile</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/orderhistory">
-                  <NavDropdown.Item>Order History</NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
                 <Link className='dropdown-item'
@@ -61,6 +58,7 @@ function App() {
       <Route path='/bus/:slug' element={<BusScreen />}/>
       <Route path='/signin' element={<SignInScreen />}/>
       <Route path='/signup' element={<SignUpScreen />}/>
+      <Route path='/profile' element={<ProfileScreen />}/>
     </Routes>
     </main>
     </BrowserRouter>

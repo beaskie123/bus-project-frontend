@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -9,12 +9,12 @@ import { Store } from '../Store';
 
 
 export default function SignInScreen() {
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {state, dispatch: ctxDispatch} = useContext(Store)
   const {userInfo} = state
-
   const submitHandler = async (e) => {
     e.preventDefault();
     try{
@@ -29,7 +29,6 @@ export default function SignInScreen() {
       alert('Invalid email or password')
     }
   }
-
   useEffect(() => {
     if(userInfo) {
       navigate('/')
@@ -59,21 +58,12 @@ export default function SignInScreen() {
                 Sign In
             </Button>
             </Form.Group>
+            <div className="mb-3">
+          New customer?{' '}
+          <Link to={`/signup`}>Create your account</Link>
+        </div>
     </Form>
     </Col>
-
-    
-      <Col className='sign-in2'>
-      <Form className='sigin-form'>
-          <h1>Hello Friend! </h1>
-          <p>New Here? Sign Up and Discover our great Deals !</p>
-        <Form.Group className='btn-form'>
-        <Button variant="primary" type="submit">
-            Sign Up
-        </Button>
-        </Form.Group>
-    </Form>
-      </Col>
     </Row>
     </div>
   )

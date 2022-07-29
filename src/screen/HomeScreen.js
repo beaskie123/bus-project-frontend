@@ -39,7 +39,6 @@ const reducer = (state, action) => {
 
   return (
     <div>
-        <Container>
             <h2>Welcome to Sonic Bus Corporation</h2>
             {loading ? (
           <div>Loading...</div>
@@ -47,8 +46,8 @@ const reducer = (state, action) => {
           <div>{error}</div>
         ) : 
             products.map((info) => (
-                <Container>
-                <Row key={info.slug}>
+                <Container className='hm-container'>
+                <Row key={info.slug} className="hs-row">
                     <Link to={`/bus/${info.slug}`}>
                     <Col>{info.name}</Col>
                     </Link>
@@ -59,8 +58,6 @@ const reducer = (state, action) => {
                 <br />
                 </Container>
             ))}
-        
-        </Container>
     </div>
   )
 }

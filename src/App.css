@@ -2,6 +2,7 @@
   font-family: 'Josefin Sans', sans-serif;
   font-family: 'Libre Baskerville', serif;
   font-family: 'Taviraj', serif;
+
 }
 .navbar-brand{
   color:rgb(98, 247, 239);
@@ -10,10 +11,15 @@
 .main{
   height:90vh;
 }
+.row{
+  margin: 0;
+  width: 100vw;
+}
 .sign-in{
   display: flex;
   justify-content: center;
   height: 90vh;
+  width: 100vw;
   background-image: url(../public/img/busbg.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -109,4 +115,14 @@ background: red;
   width: 50px;
   border: 1 px solid black;
   background: green;
+}
+.hs-row{
+  margin-left: 300px;
+  border: 1px solid black;
+  height: 100px;
+  width: 1000px;
+}
+.hm-container{
+  margin: 0;
+  padding: 0;
 }
