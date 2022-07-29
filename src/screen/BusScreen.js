@@ -11,7 +11,8 @@ const reducer = (state, action) => {
     case 'FETCH_REQUEST':
       return { ...state, loading: true };
     case 'FETCH_SUCCESS':
-      return { ...state, product: action.payload, loading: false };
+      return { ...state, product: action.payload, loading: false , user: action.payload_user
+      };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
@@ -34,17 +35,20 @@ function BusScreen() {
     },
   );
 
-  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, product, user }, dispatch] = useReducer(reducer, {
+    user: [],
     product: [],
     loading: true,
     error: '',
   });
+
 
   useEffect(()=> {
     if(product.seat && isProduct === false){
       setIsProduct(true)
       setSeat(product.seat)
     }
+    console.log(product)
   }, [product])
   
   useEffect(() => {
@@ -52,7 +56,8 @@ function BusScreen() {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const result = await axios.get(`/api/products/slug/${slug}`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        const user = await axios.get(`/api/users/getall`)
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data, payload_user: user.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
@@ -135,10 +140,11 @@ useEffect(() => {
           </Row>
             </Col>
             <Col>
-            {/* {product.name}  */}
+            {product.name} || 
+            {user[0].name}
 
             {
-              Datas.seetNo !== 0 ? <SendEmailConfirm data={Datas}/> : <p>pota</p>
+              Datas.seetNo !== 0 ? <SendEmailConfirm data={Datas}/> : <p>DATA</p>
             }
             
             </Col>

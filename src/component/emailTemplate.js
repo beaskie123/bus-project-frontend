@@ -19,21 +19,21 @@ export const SendEmailConfirm = (props) => {
   return (
     <form ref={form} onSubmit={sendEmail}>
       <label>User Name</label>
-      <input  type="text" name="name"  value={props.data.user_name}/>
+      <input  disabled type="text" name="name"  value={props.data.user_name}/>
       <br />
       <label>Email</label>
-      <input  type="email" name="toEmail" value={props.data.email}/>
+      <input  disabled type="email" name="toEmail" value={props.data.email}/>
       <br />
       <label>Bus Name</label>
-      <input  type="text" name="bus_name" value={props.data.bus_name}/>
+      <input disabled type="text" name="bus_name" value={props.data.bus_name}/>
       <br />
       <label> Seat No </label>
-      <input type="text" name="seetNo" value={props.data.seetNo}/>
+      <input disabled type="text" name="seetNo" value={props.data.seetNo}/>
       <br />
       <label> Amount to pay </label>
-      <input type="text" name="fare" value={props.data.fare}/>
+      <input disabled type="text" name="fare" value={props.data.fare}/>
       <br />
-      <input type="submit" value="Send" />
+      <input  type="submit" value="Send" />
     </form>
   );
 };
