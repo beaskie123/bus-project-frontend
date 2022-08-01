@@ -99,15 +99,17 @@ useEffect(() => {
   ) : error ? (
     <div>{error}</div>
   ) :(
-    <div>
-      <Container>
-        <Row>
+    <div className='hero2'>
+        <Row className='hero2-content'>
           <Col>
           <h2>Please select your desire seat.</h2>
+          <br/>
             {seat.map((seat, index) => {
+
             if(seat.isBooked === true){
               return(
           <div className='red'>
+            <i class="fa-solid fa-couch"></i>
             <p >{seat.number}</p>
           </div>
           ) }
@@ -115,17 +117,16 @@ useEffect(() => {
           return(
             <div className='green'
             onClick={() => onHandleChange(seat.number)}>
+              <i class="fa-solid fa-couch"></i>
               <p >{seat.number}</p>
             </div>
             )
           }
           })}
-
             </Col>
             <Col>    
-           
-            {product.name} || 
-            {user[0].name}
+              <h3>Hi {user[0].name} Thank you for choosing {product.name}. here are some information about your trip.</h3>
+              <p>Transit Liner: {product.name}</p> 
             <div class="form-group">
               <label>
                 Date:
@@ -135,11 +136,9 @@ useEffect(() => {
             {
               Datas.seetNo !== 0 ? <SendEmailConfirm data={Datas}/> : <p>DATA</p>
             }
-            
             </Col>
           </Row>
-          
-      </Container></div>
+          </div>
   )
 }
 export default BusScreen;
