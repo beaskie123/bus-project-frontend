@@ -1,10 +1,11 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import logger from 'use-reducer-logger'
+
+
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -39,14 +40,23 @@ const reducer = (state, action) => {
 
   return (
     <div>
-            <h2>Welcome to Sonic Bus Corporation</h2>
+      <section className='hero'>
+            <div className='hero-content'>
+            <h1 className='text'>Welcome to Sonic Bus Corporation</h1>
+            <br />
+            <h4 className='text'> Premium Point to Point Bus Service Planner</h4>
+            <br />
+            <p className='text'>Sonice Bus Co. is a bus service is an initiative by the Department of Transportation to offer commuters another reliable and safe mode of transport and help reduce the traffic volume in Metro Manila and beyond.</p>
+            </div>
+            
+            <br />
             {loading ? (
           <div>Loading...</div>
         ) : error ? (
           <div>{error}</div>
-        ) : 
+        ) :
             products.map((info) => (
-                <Container className='hm-container'>
+               <div className='hm-container'>
                 <Row key={info.slug} className="hs-row">
                     <Link to={`/bus/${info.slug}`}>
                     <Col>{info.name}</Col>
@@ -56,8 +66,9 @@ const reducer = (state, action) => {
                     <Col>Fare: {info.fare} Pesos</Col>
                 </Row>
                 <br />
-                </Container>
+                </div>
             ))}
+    </section>
     </div>
   )
 }

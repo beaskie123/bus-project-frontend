@@ -24,7 +24,6 @@ function BusScreen() {
   const { slug } = params;
   const [seat, setSeat] = useState([]);
   const [isProduct, setIsProduct] = useState(false);
-
   const [Datas, setDatas] = useState(
     {
       bus_name:'',
@@ -87,23 +86,14 @@ function BusScreen() {
     email: 'beyaandreya30@gmail.com',
     seetNo: selectedNumber,
   }
-
-  console.log(payload)
-  console.log(val1)
-
   setSeat(val1)
-
-  
   setDatas({...Datas, ...payload});
-  
 }
 
 useEffect(() => {
   console.log("Datas mo to ",Datas)
   console.log("seettttt",seat)
 }, [Datas]);
-
-
   return loading ? (
     <div>Loading...</div>
   ) : error ? (
@@ -130,19 +120,18 @@ useEffect(() => {
             )
           }
           })}
-            <Row>
+
+            </Col>
+            <Col>    
+           
+            {product.name} || 
+            {user[0].name}
             <div class="form-group">
               <label>
                 Date:
                 <input required type="date" name="date"/>
               </label>
             </div>
-          </Row>
-            </Col>
-            <Col>
-            {product.name} || 
-            {user[0].name}
-
             {
               Datas.seetNo !== 0 ? <SendEmailConfirm data={Datas}/> : <p>DATA</p>
             }

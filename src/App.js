@@ -13,6 +13,7 @@ import HomeScreen from './screen/HomeScreen';
 import BusScreen from './screen/BusScreen';
 import SignUpScreen from './screen/SignUpScreen';
 import ProfileScreen from './screen/ProfileScreen';
+import About from './screen/About';
 
 function App() {
   const {state, dispatch: ctxDispatch } = useContext(Store)
@@ -31,6 +32,11 @@ function App() {
           <Navbar.Brand>Sonic Bus Co.</Navbar.Brand>
           </LinkContainer>
           <Nav>
+            <Nav.Link >
+              <Link to="/about">
+              About
+              </Link>
+            </Nav.Link>
             { userInfo ? (
               <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                 <LinkContainer to="/profile">
@@ -59,6 +65,7 @@ function App() {
       <Route path='/signin' element={<SignInScreen />}/>
       <Route path='/signup' element={<SignUpScreen />}/>
       <Route path='/profile' element={<ProfileScreen />}/>
+      <Route path='/about' element={<About />}/>
     </Routes>
     </main>
     </BrowserRouter>
