@@ -82,8 +82,8 @@ function BusScreen() {
   const payload = {
     bus_name:name,
     fare,
-    user_name:'bea',
-    email: 'beyaandreya30@gmail.com',
+    user_name: user[0].name,
+    email: user[0].email,
     seetNo: selectedNumber,
   }
   setSeat(val1)

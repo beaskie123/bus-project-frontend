@@ -13,8 +13,6 @@ const reducer = (state, action) => {
             return {...state, loading: true}
         case 'FETCH_SUCCESS':
             return {...state, products: action.payload, loading: false};
-        case 'FETCH_SEARCH':
-            return {...state, products: action.payload, loading: false};
         case 'FETCH_FAIL':
             return{...state, loading:false, error: action.payload};
         default:
@@ -24,7 +22,7 @@ const reducer = (state, action) => {
   
 
   function HomeScreen() {
-    const [search , setSearch] = useState([])
+    const [search , setSearch] = useState('')
 
     const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
         products: [],
@@ -48,7 +46,7 @@ const reducer = (state, action) => {
     const onHandleSearch = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.post('/api/products/search', { droppingPoints : search });
+        const result = await axios.post('/api/products/search', { droppingPoints : search.toUpperCase() });
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         console.log(err.message)
@@ -75,7 +73,7 @@ const reducer = (state, action) => {
         ) : error ? (
           <div>{error}</div>
         ) :
-           products > 0 ? products.map((info) => (
+          ( products.length > 0 ? products.map((info) => (
                <div className='hm-container'>
                 <Row key={info.slug} className="hs-row">
                     <Link to={`/bus/${info.slug}`}>
@@ -88,6 +86,7 @@ const reducer = (state, action) => {
                 <br />
                 </div>
             )) : <p> no data found </p>
+          )
           }
     </section>
     </div>
