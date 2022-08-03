@@ -4,8 +4,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 import logger from 'use-reducer-logger'
-
-
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -18,9 +19,7 @@ const reducer = (state, action) => {
         default:
             return state;
     }
-}
-  
-
+  }
   function HomeScreen() {
     const [search , setSearch] = useState('')
 
@@ -29,7 +28,6 @@ const reducer = (state, action) => {
         loading: true,
         error: '',
       });
-
     useEffect(() => {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
@@ -42,7 +40,6 @@ const reducer = (state, action) => {
         }
         fetchData();
     }, [])
-
     const onHandleSearch = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
@@ -64,30 +61,40 @@ const reducer = (state, action) => {
             <br />
             <p className='text'>Sonice Bus Co. is a bus service is an initiative by the Department of Transportation to offer commuters another reliable and safe mode of transport and help reduce the traffic volume in Metro Manila and beyond.</p>
             </div>
-            
-            <br />
-            <input type='text' onChange={(e) => setSearch(e.target.value)} />
-            <button onClick={onHandleSearch}> Search route </button>
+            <Container>
+            <Form className="d-flex">
+            <Form.Control
+              type="search"
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search"
+              className="me-2 input-box"
+              aria-label="Search"
+            />
+            <Button onClick={onHandleSearch} variant="outline-success">Search</Button>
+          </Form>
             {loading ? (
           <div>Loading...</div>
         ) : error ? (
           <div>{error}</div>
         ) :
           ( products.length > 0 ? products.map((info) => (
+            <Link to={`/bus/${info.slug}`} className="link-container">
                <div className='hm-container'>
-                <Row key={info.slug} className="hs-row">
-                    <Link to={`/bus/${info.slug}`}>
+                <Row key={info.slug} className="hs-row link-row">
+                    
                     <Col>{info.name}</Col>
-                    </Link>
                     <Col>Arrival Time : {info.arrivaltime}</Col>
                     <Col>Departure Time: {info.departureTime}</Col>
                     <Col>Fare: {info.fare} Pesos</Col>
                 </Row>
                 <br />
                 </div>
+                </Link>
+                
             )) : <p> no data found </p>
           )
           }
+          </Container>
     </section>
     </div>
   )

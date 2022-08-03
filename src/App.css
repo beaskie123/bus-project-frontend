@@ -108,17 +108,20 @@ border-radius: 40px;
   width: 50px;
   border: 1 px solid black;
 background: red;
+margin: 10px;
+
 }
 .green{
   width: 50px;
   border: 1 px solid black;
   background: green;
+  margin: 10px
 }
 .hs-row{
   align-items: center;
-  place-content: center;
-  border: 1px solid black;
-  height: 100px;
+  justify-content: center;
+  justify-items: center;
+  height: 50px;
   width: 1000px;
   margin: 0;
 }
@@ -184,4 +187,70 @@ h2{
 }
 * link{
   text-decoration: none;
+}
+.input-box{
+  width: 300px;
+}
+.link-container{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.link-container:hover{
+  background: rgb(252, 13, 53);
+  cursor: pointer;
+}
+.hm-container{
+  display: grid;
+  justify-content: center;
+  margin: 3px;
+  border: solid 0.5px rgba(128, 128, 128, 0.438);
+}
+.hm-container:hover{
+  background-color: rgba(0, 0, 0, 0.349);
+  border: 1px solid black;
+  color: white;
+}
+.product-col{
+  background: silver;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 400px;
+  border: 1px solid black;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  padding-left: 40px;
+}
+
+.pearl {
+  display: flex;
+  place-content: center;
+  height: 60px;
+  width: 40px;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
+  border-right: 15px solid black;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background: rgb(39, 182, 39);
+  margin: 10px;
+}
+.pearl2 {
+  display: flex;
+  place-content: center;
+  height: 60px;
+  width: 40px;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
+  border-right: 15px solid black;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background: white;
+  margin: 10px;
+}
+.col-items{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }

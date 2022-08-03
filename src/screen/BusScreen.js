@@ -101,28 +101,28 @@ useEffect(() => {
   ) :(
     <div className='hero2'>
         <Row className='hero2-content'>
-          <Col>
+          <Col className='col-items'>
           <h2>Please select your desire seat.</h2>
           <br/>
-            {seat.map((seat, index) => {
-
+          <div  className="product-col">
+          {seat.map((seat, index) => {
             if(seat.isBooked === true){
               return(
-          <div className='red'>
-            <i class="fa-solid fa-couch"></i>
+          <div className='pearl'>
             <p >{seat.number}</p>
           </div>
           ) }
           else {
           return(
-            <div className='green'
+            <div className='pearl2'
             onClick={() => onHandleChange(seat.number)}>
-              <i class="fa-solid fa-couch"></i>
               <p >{seat.number}</p>
             </div>
             )
           }
           })}
+          </div>
+            
             </Col>
             <Col>    
               <h3>Hi {user[0].name} Thank you for choosing {product.name}. here are some information about your trip.</h3>
